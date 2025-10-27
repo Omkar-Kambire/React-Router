@@ -9,24 +9,31 @@ import Student from "./Student";
 import Department from "./Department";
 import Details from "./Details";
 
-
 function App() {
   return (
     <>
       <h1>React Router</h1>
-      <NavBar />
+      {/* <NavBar /> */}
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/college" element={<College />} > 
-          <Route path="student" element={<Student />} />
-          <Route path="department" element={<Department />} />
-          <Route path="details" element={<Details />} />
+        <Route element={<NavBar />}>
+          <Route path="/" element={<Home />} />
+          <Route path="user">
+            <Route path="about" element={<About />} />
+            <Route path="contact" element={<Contact />} />
+          </Route>
+          <Route path="/college" element={<College />}>
+            <Route path="student" element={<Student />} />
+            <Route path="department" element={<Department />} />
+            <Route path="details" element={<Details />} />
+          </Route>
+          {/* <Route path="*" element={<Page404 />} /> */}
+          {/* to show 404 page or redirect to home page */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Route>
         {/* <Route path="*" element={<Page404 />} /> // to show 404 page */}
-        <Route path="*" element={<Navigate to="/" />} /> // to redirect to home page
+        <Route path="*" element={<Navigate to="/" />} /> // to redirect to home
+        page
       </Routes>
     </>
   );
