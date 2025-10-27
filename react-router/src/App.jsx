@@ -20,8 +20,10 @@ function App() {
       <Routes>
         <Route element={<NavBar />}>
           <Route path="/" element={<Home />} />
-          <Route path="/users" element={<UserList />} />
+          <Route path="/users/list?" element={<UserList />} />  {/* '?' makes the segment optional. It matches both '/users/list' and '/users/'*/}
+          {/* <Route path="/users/list" element={<UserList />} /> */}
           <Route path="/users/:id" element={<UserDetails />} />
+          <Route path="/users/:id/:name?" element={<UserDetails />} />
 
           {/* Route Prefixes */}
           <Route path="user">

@@ -19,6 +19,15 @@ const UserList = () => {
                 </div>
             ))
         }
+
+        <h1>User List with name</h1>
+        {
+            userData.map((user) => (
+                <div key={user.id} style={{margin: "1px", padding: "2px"}}>
+                    <h3><Link to={"/users/"+user.id+"/"+user.name}>{user.name}</Link></h3>
+                </div>
+            ))
+        }
     </div>
   )
 }
